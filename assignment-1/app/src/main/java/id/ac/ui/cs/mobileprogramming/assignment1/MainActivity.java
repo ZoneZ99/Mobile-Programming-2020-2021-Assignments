@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void submitHelloName(View view) {
-		final EditText inputField = findViewById(R.id.nameInputField);
-		final TextView helloDisplay = findViewById(R.id.helloDisplay);
+		EditText inputField = findViewById(R.id.nameInputField);
+		TextView helloDisplay = findViewById(R.id.helloDisplay);
 
 		if (!inputField.getText().toString().equals("")) {
 			helloDisplay.setText("Hello, " + inputField.getText() + "!");
