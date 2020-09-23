@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.assignment1;
+package id.ac.ui.cs.mobileprogramming.assignments;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.assignment1;
+package id.ac.ui.cs.mobileprogramming.assignments;
 
 import androidx.test.espresso.intent.Intents;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;

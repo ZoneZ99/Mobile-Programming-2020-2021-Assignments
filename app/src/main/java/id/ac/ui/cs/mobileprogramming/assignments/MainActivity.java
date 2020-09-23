@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.assignment1;
+package id.ac.ui.cs.mobileprogramming.assignments;
 
 import android.os.Bundle;
 import android.view.View;
