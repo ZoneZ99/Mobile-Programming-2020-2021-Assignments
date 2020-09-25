@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import id.ac.ui.cs.mobileprogramming.assignments.utils.HelloWorldUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
 		EditText inputField = findViewById(R.id.nameInputField);
 		TextView helloDisplay = findViewById(R.id.helloDisplay);
 
-		if (!inputField.getText().toString().equals("")) {
-			helloDisplay.setText("Hello, " + inputField.getText() + "!");
-		}
+		String helloText = HelloWorldUtil.sayHello(inputField.getText().toString());
+		helloDisplay.setText(helloText);
 	}
 }

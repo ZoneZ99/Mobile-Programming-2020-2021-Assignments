@@ -1,5 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.assignments;
 
+import id.ac.ui.cs.mobileprogramming.assignments.utils.HelloWorldUtil;
 import org.junit.Test;
 
 import static com.google.common.truth.Truth.*;
