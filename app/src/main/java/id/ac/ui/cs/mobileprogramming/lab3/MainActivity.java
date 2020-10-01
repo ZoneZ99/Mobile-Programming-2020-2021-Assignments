@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
@@ -18,6 +19,15 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		this.runTimer();
+	}
+
+	@Override
+	public void onBackPressed() {
+		Toast.makeText(
+			getApplicationContext(),
+			"Tap the 'EXIT' button to exit for real.",
+			Toast.LENGTH_SHORT
+		).show();
 	}
 
 	public void onClickStart(View view) {
@@ -54,5 +64,9 @@ public class MainActivity extends AppCompatActivity {
 				handler.postDelayed(this, 1000);
 			}
 		});
+	}
+
+	public void onClickExit(View view) {
+		this.finish();
 	}
 }

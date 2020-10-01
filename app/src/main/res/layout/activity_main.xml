@@ -42,4 +42,13 @@
         android:onClick="onClickReset"
         android:text="@string/reset" />
 
+    <Button
+        android:id="@+id/exit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:onClick="onClickExit"
+        android:text="@string/exit" />
+
 </LinearLayout>
