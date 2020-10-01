@@ -2,6 +2,7 @@ package id.ac.ui.cs.mobileprogramming.lab3;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,16 +14,55 @@ public class MainActivity extends AppCompatActivity {
 
 	private int seconds = 0;
 	private boolean running;
+	private final String LOG_TAG = "Lab3";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		Log.d(this.LOG_TAG, "onCreate");
+
 		if (savedInstanceState != null) {
 			this.seconds = savedInstanceState.getInt("seconds");
 			this.running = savedInstanceState.getBoolean("running");
 		}
 		this.runTimer();
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		Log.d(this.LOG_TAG, "onStart");
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.d(this.LOG_TAG, "onResume");
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		Log.d(this.LOG_TAG, "onPause");
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		Log.d(this.LOG_TAG, "onStop");
+	}
+
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		Log.d(this.LOG_TAG, "onRestart");
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		Log.d(this.LOG_TAG, "onDestroy");
 	}
 
 	@Override
