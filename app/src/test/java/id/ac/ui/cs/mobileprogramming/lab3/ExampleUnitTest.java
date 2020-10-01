@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.assignment1;
+package id.ac.ui.cs.mobileprogramming.lab3;
 
 import org.junit.Test;
 
