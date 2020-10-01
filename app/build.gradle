@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId "id.ac.ui.cs.mobileprogramming.assignment1"
+        applicationId "id.ac.ui.cs.mobileprogramming.assignments"
         minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
@@ -47,5 +47,5 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:4.4'
     testImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     testImplementation 'androidx.test.espresso:espresso-intents:3.3.0'
-    testImplementation 'androidx.test.ext:truth:1.3.0-rc01'
+    testImplementation 'androidx.test.ext:truth:1.3.0'
 }
