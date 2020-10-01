@@ -13,13 +13,4 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 	}
-
-	public void submitHelloName(View view) {
-		EditText inputField = findViewById(R.id.nameInputField);
-		TextView helloDisplay = findViewById(R.id.helloDisplay);
-
-		if (!inputField.getText().toString().equals("")) {
-			helloDisplay.setText("Hello, " + inputField.getText() + "!");
-		}
-	}
 }
