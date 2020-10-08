@@ -3,7 +3,6 @@ package id.ac.ui.cs.mobileprogramming.lab4.views;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import id.ac.ui.cs.mobileprogramming.lab4.R;
-import id.ac.ui.cs.mobileprogramming.lab4.models.Coffee;
 import id.ac.ui.cs.mobileprogramming.lab4.views.fragments.CoffeeDetailFragment;
 import id.ac.ui.cs.mobileprogramming.lab4.views.fragments.CoffeeListFragment;
 

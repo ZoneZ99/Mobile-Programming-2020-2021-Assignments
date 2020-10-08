@@ -31,12 +31,20 @@ public class CoffeeDetailFragment extends Fragment {
 		this.mViewModel = new ViewModelProvider(requireActivity()).get(CoffeeViewModel.class);
 		this.mViewModel.getSelectedCoffee().observe(this, item -> {
 			Coffee coffee = mViewModel.getCoffeeDetails(item);
-			this.name.setText(coffee.getName());
-			this.origin.setText(coffee.getOrigin());
-			this.type.setText(coffee.getType());
-			this.aroma.setText(coffee.getAroma());
-			this.taste.setText(coffee.getTaste());
+			this.setCoffeeDetails(coffee);
 		});
+	}
+
+	private void setCoffeeDetails(Coffee coffee) {
+		this.name.setText(coffee.getName());
+		String originText = "Origin: " + coffee.getOrigin();
+		String typeText = "Type: " + coffee.getType();
+		String aromaText = "Aroma: " + coffee.getAroma();
+		String tasteText = "Taste: " + coffee.getTaste();
+		this.origin.setText(originText);
+		this.type.setText(typeText);
+		this.aroma.setText(aromaText);
+		this.taste.setText(tasteText);
 	}
 
 	@Nullable

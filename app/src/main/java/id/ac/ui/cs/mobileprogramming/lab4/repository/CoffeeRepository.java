@@ -13,21 +13,60 @@ public class CoffeeRepository {
 	private static CoffeeRepository instance;
 
 	private CoffeeRepository() {
-		this.coffees.put("A", new Coffee("A", "B", "C" , "D", "E"));
-		this.coffees.put("F", new Coffee("F", "G", "H", "I", "J"));
+		Coffee[] coffeeArray = new Coffee[]{
+			new Coffee(
+				"Arabica Gayo Takengon",
+				"Gayo Takengon",
+				"Arabica",
+				"Brown sugar, dark chocolate, sweet, and citrus",
+				"Chocolate caramel and unripe orange"
+			),
+			new Coffee(
+				"Robusta Lampung",
+				"Lampung",
+				"Robusta",
+				"Chocolaty, brown sugar, woody, and earthy",
+				"Brown sugar, cocoa, woody, and earthy"
+			),
+			new Coffee(
+				"Arabica Gayo Wine",
+				"Gayo",
+				"Arabica",
+				"Brown sugar, dark chocolate, fruity, and berry",
+				"Strong wine, berry, alcohol-like, fruity, sweet"
+			),
+			new Coffee(
+				"Arabica Ethiopia Sidamo",
+				"Ethiopia Sidamo",
+				"Arabica",
+				"Floral",
+				"Spice, wine, well-balanced with notes of chocolate"
+			),
+			new Coffee(
+				"Gourment Blend",
+				"Blend",
+				"Arabica",
+				"Brown sugar and orange zest",
+				"Brown sugar, sweet, and dark chocolate"
+			)
+		};
+		for (Coffee coffee : coffeeArray) {
+			this.coffees.put(coffee.getName(), coffee);
+		}
 	}
 
 	public static CoffeeRepository getInstance() {
-		 if (instance == null) {
-		 	instance = new CoffeeRepository();
-		 }
-		 return instance;
+		if (instance == null) {
+			instance = new CoffeeRepository();
+		}
+		return instance;
 	}
 
 	public List<String> getCoffees() {
 		return this.coffees.values()
 			.stream()
 			.map(Coffee::getName)
+			.sorted()
 			.collect(Collectors.toList());
 	}
 
