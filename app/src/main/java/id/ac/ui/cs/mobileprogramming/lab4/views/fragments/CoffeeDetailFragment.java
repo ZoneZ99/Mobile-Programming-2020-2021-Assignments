@@ -4,12 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import id.ac.ui.cs.mobileprogramming.lab4.R;
+import id.ac.ui.cs.mobileprogramming.lab4.databinding.CoffeeDetailsBinding;
 import id.ac.ui.cs.mobileprogramming.lab4.models.Coffee;
 import id.ac.ui.cs.mobileprogramming.lab4.viewmodels.CoffeeViewModel;
 
@@ -17,13 +16,9 @@ public class CoffeeDetailFragment extends Fragment {
 
 	private CoffeeViewModel mViewModel;
 
-	public static final String TAG = "CoffeeDetailFragment";
+	private CoffeeDetailsBinding mBinding;
 
-	private TextView name;
-	private TextView origin;
-	private TextView type;
-	private TextView aroma;
-	private TextView taste;
+	public static final String TAG = "CoffeeDetailFragment";
 
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,15 +31,15 @@ public class CoffeeDetailFragment extends Fragment {
 	}
 
 	private void setCoffeeDetails(Coffee coffee) {
-		this.name.setText(coffee.getName());
+		this.mBinding.name.setText(coffee.getName());
 		String originText = "Origin: " + coffee.getOrigin();
 		String typeText = "Type: " + coffee.getType();
 		String aromaText = "Aroma: " + coffee.getAroma();
 		String tasteText = "Taste: " + coffee.getTaste();
-		this.origin.setText(originText);
-		this.type.setText(typeText);
-		this.aroma.setText(aromaText);
-		this.taste.setText(tasteText);
+		this.mBinding.origin.setText(originText);
+		this.mBinding.type.setText(typeText);
+		this.mBinding.aroma.setText(aromaText);
+		this.mBinding.taste.setText(tasteText);
 	}
 
 	@Nullable
@@ -52,13 +47,13 @@ public class CoffeeDetailFragment extends Fragment {
 	public View onCreateView(@NonNull LayoutInflater inflater,
 	                         @Nullable ViewGroup container,
 	                         @Nullable Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.coffee_details, container, false);
-		this.name = view.findViewById(R.id.name);
-		this.origin = view.findViewById(R.id.origin);
-		this.type = view.findViewById(R.id.type);
-		this.aroma = view.findViewById(R.id.aroma);
-		this.taste = view.findViewById(R.id.taste);
+		this.mBinding = CoffeeDetailsBinding.inflate(inflater, container, false);
+		return this.mBinding.getRoot();
+	}
 
-		return view;
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+		this.mBinding = null;
 	}
 }
