@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 		public void onReceive(Context context, Intent intent) {
 			List<ScanResult> scanResults = mWifiManager.getScanResults();
 			if (scanResults.isEmpty()) {
-				mBinding.buttonSendWifiData.setVisibility(View.GONE);
+				mBinding.buttonSendWifiData.setEnabled(false);
 			} else {
 				mBinding.listWifi.setAdapter(
 						new ArrayAdapter<>(
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 				mWifiData = scanResults.stream()
 						.map(result -> new WifiData(result.SSID, result.BSSID, result.frequency))
 						.collect(Collectors.toList());
-				mBinding.buttonSendWifiData.setVisibility(View.VISIBLE);
+				mBinding.buttonSendWifiData.setEnabled(true);
 			}
 			unregisterReceiver(this);
 			mBinding.buttonScan.setEnabled(true);
@@ -67,18 +67,18 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(view);
 
 		mWifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-		mBinding.buttonSendWifiData.setVisibility(View.GONE);
+		mBinding.buttonSendWifiData.setEnabled(false);
 		scanWifi();
 	}
 
 	public void scanWifiClickCallback(View view) {
-		mBinding.buttonScan.setEnabled(false);
-		mBinding.buttonSendWifiData.setVisibility(View.GONE);
 		scanWifi();
 	}
 
 	private void scanWifi() {
 		Toast.makeText(this, "Scanning...", Toast.LENGTH_SHORT).show();
+		mBinding.buttonScan.setEnabled(false);
+		mBinding.buttonSendWifiData.setEnabled(false);
 		registerReceiver(mWifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
 		mWifiManager.startScan();
 	}
