@@ -13,13 +13,18 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		System.loadLibrary("native-hello-world-util");
 	}
+
+	public native String nativeHelloWorld(String input);
+
 
 	public void submitHelloName(View view) {
 		EditText inputField = findViewById(R.id.nameInputField);
 		TextView helloDisplay = findViewById(R.id.helloDisplay);
 
-		String helloText = HelloWorldUtil.sayHello(inputField.getText().toString());
+//		String helloText = HelloWorldUtil.sayHello(inputField.getText().toString());
+		String helloText = nativeHelloWorld(inputField.getText().toString());
 		helloDisplay.setText(helloText);
 	}
 }
