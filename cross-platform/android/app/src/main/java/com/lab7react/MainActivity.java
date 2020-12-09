@@ -1,4 +1,4 @@
-package com.helloreactnative;
+package com.lab7react;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "HelloReactNative";
+    return "Lab7React";
   }
 }
